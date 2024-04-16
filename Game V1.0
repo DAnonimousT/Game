@@ -167,7 +167,7 @@ beggining:
                         inputs.running = false;
                     }
                     else
-                        Console.WriteLine("You don't have the key for the door!");
+                        Console.WriteLine("This door don't have keyhole!");
                     break;
 
                 case "Help":
