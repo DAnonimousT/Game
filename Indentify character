@@ -8,38 +8,33 @@ namespace IndentifyCharacter
             Console.WriteLine("Username");
             string username = Console.ReadLine();
 
-            Stats(playerStats.range, playerStats.health, playerStats.attackDamage, playerStats.armor);
-
-            Console.ReadLine();
-        }
-        static void Stats(int range, int health, int attackDamage, double armor)
-        {
             while (true)
             {
                 string type = Console.ReadLine();
                 switch (type)
                 {
                     case "Archer":
-                        range += 9;
+                        playerStats.range += 9;
                         break;
                     case "Fighter":
-                        health += 50;
+                        playerStats.health += 50;
                         break;
                     case "Assasin":
-                        attackDamage += 15;
+                        playerStats.attackDamage += 15;
                         break;
                     case "Tank":
-                        armor += 0.3;
+                        playerStats.armor += 0.3;
                         break;
                 }
                 break;
             }
-            Console.WriteLine($"Health: {health} \t Damage: {attackDamage} \t Range: {range} \t Armor: {armor}");
+            Console.WriteLine($"Health: {playerStats.health} \t Damage: {playerStats.attackDamage} \t Range: {playerStats.range} \t Armor: {playerStats.armor}");
         }
     }
     class Stats
     {
-        public const int bagpack = 100;
+        public int bagpack = 100;
+        public int bagpackcounter = 0;
         public int health = 100;
         public int attackDamage = 5;
         public int range = 1;
