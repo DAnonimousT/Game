@@ -1,0 +1,73 @@
+class Program
+{
+    static void Main(string[] args)
+    {
+        Stats playerStats = new Stats();
+        Items items = new Items();
+        while (true)
+        {
+            string command = Console.ReadLine();
+            switch (command)
+            {
+                case "use pistol":
+                    if (items.pistol[2] == 0)
+                    {
+                        playerStats.attackDamage += items.pistol[0];
+                        playerStats.bagpackcounter -= items.pistol[1];
+                        items.pistol[2] = 1;
+                        Console.WriteLine("tuk");
+                    }
+                    else { Console.WriteLine("In use!"); }
+                    break;
+                case "use medkit":
+                    if(items.medkit[2] == 0)
+                    {
+                        playerStats.health += items.medkit[0];
+                        playerStats.bagpackcounter -= items.medkit[1];
+                        items.medkit[2] = 1;
+                        Console.WriteLine("medkit");
+                    }
+                    else { Console.WriteLine("Used!"); }
+                    break;
+                case "use burger":
+                    if (items.burger[2] == 0)
+                    {
+                        playerStats.health += items.burger[0];
+                        playerStats.bagpackcounter -= items.burger[1];
+                        items.burger[2] = 1;
+                        Console.WriteLine("burger");
+                    }
+                    else { Console.WriteLine("Used!"); }
+                    break;
+                case "use water":
+                    if (items.water[2] == 0)
+                    {
+                        playerStats.health += items.water[0];
+                        playerStats.bagpackcounter -= items.water[1];
+                        items.water[2] = 1;
+                        Console.WriteLine("water");
+                    }
+                    else { Console.WriteLine("Used!"); }
+                    break;
+            }
+        }
+    }
+}
+class Stats
+{
+    public int bagpack = 100;
+    public int bagpackcounter = 0;
+    public int health = 100;
+    public int attackDamage = 5;
+    public int range = 1;
+    public double armor = 0.1;
+
+}
+class Items
+{
+    public int[] pistol = { 10, 16, 0 };
+    public int[] medkit = { 15, 70, 0 };
+    public int[] burger = { 3, 19, 0 };
+    public int[] water = { 3, 10, 0 };
+    public int[] something = { 100, 100, 0 };
+}
